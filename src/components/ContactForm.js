@@ -25,6 +25,7 @@ const ContactForm = () => {
     validationSchema: validationSchema,
     onSubmit: (values) => {
       setLoading(true);
+      setError({ type: "", message: "" });
       axios
         .post("http://localhost:5000/contact", values)
         .then((data) => {
@@ -38,11 +39,8 @@ const ContactForm = () => {
           setLoading(false);
           setError({
             type: "error",
-            message: error.message,
+            message: error?.response?.data?.message || error.message,
           });
-          setTimeout(() => {
-            setError({ type: "", message: "" });
-          }, 5000);
         });
     },
   });
