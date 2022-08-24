@@ -4,10 +4,11 @@ const nodemailer = require("nodemailer");
 const contacts = require("./src/model");
 
 const contactEmail = nodemailer.createTransport({
-  service: "gmail",
+  host: "smtp.mailtrap.io",
+  port: 2525,
   auth: {
-    user: "***************@gmail.com",
-    pass: "********",
+    user: "81df5354e792f2",
+    pass: "6bdb599f72624f",
   },
 });
 
@@ -28,12 +29,12 @@ router.post("/contact", async (req, res) => {
     const email = req.body.email;
     const message = req.body.message;
     const mail = {
-      from: name,
+      from: email,
       to: "victor.popanode93@gmail.com",
       subject: "Contact Form Message",
       html: `<p>Name: ${name}</p><p>Email: ${email}</p><p>Message: ${message}</p>`,
     };
-    await contactEmail.sendMail(mail);
+    const emailStatus = await contactEmail.sendMail(mail);
     await contacts.insertMany(req.body);
     res.json({ status: "SUCCESS", message: "Message sent successfully." });
   } catch (error) {

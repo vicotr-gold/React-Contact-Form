@@ -5,17 +5,6 @@
 
 git clone https://github.com/vicotr-gold/React-Contact-Form.git
 
-## Configuration nodemailer
-
-replace user and pass of auth contactEmail in server.js
-` const contactEmail = nodemailer.createTransport({ `
-`  service: "gmail",`
-`  auth: {`
-`    user: "***************@gmail.com",`
-`    pass: "********",`
-`  },`
-`}); `
-
 ### npm package install
 
 ` npm install `
