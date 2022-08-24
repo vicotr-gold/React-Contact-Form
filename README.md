@@ -7,7 +7,7 @@ git clone https://github.com/vicotr-gold/React-Contact-Form.git
 
 ## Configuration nodemailer
 
-replace user and pass of auth contactEmail in src/server.js
+replace user and pass of auth contactEmail in server.js
 ` const contactEmail = nodemailer.createTransport({ `
 `  service: "gmail",`
 `  auth: {`
@@ -22,8 +22,8 @@ replace user and pass of auth contactEmail in src/server.js
 
 ### open terminal or command prompt and then run react app
 
-` npm run frontend` 
+` npm run start` 
 
 ### open another terminal or command prompt and then run nodejs api
 
-` npm run backend`
+` npm run server`
